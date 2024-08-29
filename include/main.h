@@ -47,6 +47,8 @@
 #include "command/sequence.h"
 #include "command/trigger.h"
 #include "command/commandController.h"
+#include "command/waitCommand.h"
+#include "command/waitUntilCommand.h"
 
 /**
  * You should add more #includes here

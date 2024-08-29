@@ -252,6 +252,22 @@
                 "target": "v5",
                 "user_files": [],
                 "version": "8.3.8"
+            },
+            "libunit": {
+                "location": "/Users/alex/Library/Application Support/PROS/templates/libunit@1.0.0",
+                "metadata": {
+                    "origin": "local"
+                },
+                "name": "libunit",
+                "py/object": "pros.conductor.templates.local_template.LocalTemplate",
+                "supported_kernels": "^4.1.0",
+                "system_files": [
+                    "firmware/libunit.a",
+                    "include/units/units.hpp"
+                ],
+                "target": "v5",
+                "user_files": [],
+                "version": "1.0.0"
             }
         },
         "upload_options": {},

@@ -45,6 +45,8 @@
 #include "command/parallelCommandGroup.h"
 #include "command/parallelRaceGroup.h"
 #include "command/sequence.h"
+#include "command/trigger.h"
+#include "command/commandController.h"
 
 /**
  * You should add more #includes here

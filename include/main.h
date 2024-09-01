@@ -50,6 +50,8 @@
 #include "command/waitCommand.h"
 #include "command/waitUntilCommand.h"
 #include "command/conditionalCommand.h"
+#include "command/scheduleCommand.h"
+#include "example/intake.h"
 
 /**
  * You should add more #includes here

@@ -31,11 +31,7 @@ public:
 	}
 
 	bool isFinished() override {
-		if (index < commands.size()) {
-			return commands[index]->isFinished();
-		} else {
-			return true;
-		}
+		return this->index >= commands.size();
 	}
 
 	void end(const bool interrupted) override {

@@ -49,6 +49,7 @@
 #include "command/commandController.h"
 #include "command/waitCommand.h"
 #include "command/waitUntilCommand.h"
+#include "command/conditionalCommand.h"
 
 /**
  * You should add more #includes here

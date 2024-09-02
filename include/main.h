@@ -36,9 +36,7 @@
 
 #include "api.h"
 #include "command/commandScheduler.h"
-#include "test/test_subsystem.h"
-#include "test/test_command.h"
-#include"command/repeatCommand.h"
+#include "command/repeatCommand.h"
 #include "command/functionalCommand.h"
 #include "command/instantCommand.h"
 #include "command/runCommand.h"

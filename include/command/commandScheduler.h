@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cassert>
-#include <main.h>
 #include <unordered_map>
 #include "command.h"
 #include "subsystem.h"
@@ -34,7 +33,7 @@ public:
 		CommandScheduler& instance = getInstance();
 
 		// Make sure the subsystem isn't already registered
-		assert(instance.subsystems.find(subsystem) == instance.subsystems.end());
+		assert(!instance.subsystems.contains(subsystem));
 
 		// Make sure the default command isn't null
 		assert(default_command != nullptr);

@@ -1,4 +1,6 @@
-# Command Scheduler
+# CommandScheduler
+
+DOCS WIP
 
 ```{doxygenclass} CommandScheduler
 :members:

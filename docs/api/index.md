@@ -2,6 +2,10 @@
 
 ```{toctree}
 :maxdepth: 2
-:caption: Contents:
-:ref:`genindex`
+:caption: API
+
+./command.ms
+./commandScheduler.md
+./eventLoop.md
+./subsystem.md
 ```

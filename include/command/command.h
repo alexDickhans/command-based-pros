@@ -10,8 +10,22 @@ enum class CommandCancelBehavior {
 };
 
 // Like WPILib's Command class
+/**
+ * @brief Abstract Command class to be overriden for new commands
+ *
+ */
 class Command {
 public:
+	/** @brief Called before every time the command is used. Users can override this to create starting behaviors for
+	 * custom commands
+	 *
+	 *  @code
+	 *	void initialize() override {
+	 *		// Initialization tasks here, for example setting motor position PID commands
+	 *		motor.move_absolute(5, 200);
+	 *	}
+	 *  @endcode
+	 */
     virtual void initialize() {}
     virtual void execute() {}
     virtual bool isFinished() { return false; };
@@ -29,6 +43,7 @@ public:
     Command* with(Command* other);
     Command* race(Command* other);
     Command* repeatedly();
+    Command* asProxy();
 
     virtual ~Command() = default;
 };

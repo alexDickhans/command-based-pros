@@ -1,0 +1,5 @@
+# ParallelRaceGroup
+
+```{doxygenclass} ParallelRaceGroup
+:members:
+```

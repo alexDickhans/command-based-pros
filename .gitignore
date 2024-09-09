@@ -17,3 +17,5 @@ temp.errors
 .d/
 docs/doc_out
 docs/build
+
+.DS_Store

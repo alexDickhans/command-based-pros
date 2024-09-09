@@ -1,0 +1,5 @@
+# FunctionalCommand
+
+```{doxygenclass} FunctionalCommand
+:members:
+```

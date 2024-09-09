@@ -11,14 +11,14 @@ self
 
 ```{toctree}
 :maxdepth: 2
-:caption: API Reference
+:caption: Tutorials
 
-./api/index.md
+./tutorials/index.md
 ```
 
 ```{toctree}
 :maxdepth: 2
-:caption: Examples
+:caption: API Reference
 
-./example/index.md
+./api/index.md
 ```

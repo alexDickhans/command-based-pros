@@ -1,0 +1,5 @@
+# ConditionalCommand
+
+```{doxygenclass} ConditionalCommand
+:members:
+```

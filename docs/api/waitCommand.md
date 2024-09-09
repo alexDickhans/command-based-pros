@@ -1,0 +1,5 @@
+# WaitCommand
+
+```{doxygenclass} WaitCommand
+:members:
+```

@@ -4,7 +4,7 @@
 :maxdepth: 2
 :caption: API
 
-./command.ms
+./command.md
 ./commandScheduler.md
 ./eventLoop.md
 ./subsystem.md

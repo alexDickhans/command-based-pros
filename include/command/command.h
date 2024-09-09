@@ -201,7 +201,7 @@ public:
 	 *
 	 * @warning Only use \refitem ProxyCommand where ABSOLUTELY necessary, it can have unintended side effects. The side
 	 * effects are listed in the class documentation
-	 * @return \refitem ProxyCommand
+	 * @return \refitem ProxyCommand with this
 	 */
 	Command *asProxy();
 

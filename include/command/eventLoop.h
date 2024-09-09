@@ -28,7 +28,7 @@ public:
 	EventLoop(const std::initializer_list<std::function<void()>> bindings) : bindings(bindings) {}
 
 	/**
-	 * Poll is run every frame and runs each of the bindings
+	 * @brief Poll is run every frame and runs each of the bindings. This is generally run by the CommandScheduler
 	 */
 	void poll() {
 		for (const auto& binding: this->bindings) {
@@ -36,10 +36,17 @@ public:
 		}
 	}
 
+	/**
+	 * @brief Bind a new command to the EventLoop
+	 * @param binding The void function binding to run every frame
+	 */
 	void bind(const std::function<void()>& binding) {
 		bindings.emplace_back(binding);
 	}
 
+	/**
+	 * @brief Clear all bindings on this event loop
+	 */
 	void clear() {
 		bindings.clear();
 	}

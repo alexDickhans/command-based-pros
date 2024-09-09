@@ -4,6 +4,13 @@ is a PROS library for VEX programmers who want a better interface for complex co
 
 ```{toctree}
 :maxdepth: 2
+:caption: Home
+
+self
+```
+
+```{toctree}
+:maxdepth: 2
 :caption: API Reference
 
 ./api/index.md

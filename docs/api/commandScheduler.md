@@ -1,5 +1,5 @@
 # Command Scheduler
 
-```{doxygenclass} Command Scheduler
+```{doxygenclass} CommandScheduler
 :members:
 ```

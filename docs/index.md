@@ -7,7 +7,3 @@ is a PROS library for VEX programmers who want a better interface for complex co
 :caption: Contents:
 :ref:`genindex`
 ```
-
-```{doxygenclass} Command
-:members:
-```

@@ -1,5 +1,8 @@
 #pragma once
 
+#include "eventLoop.h"
+#include "commandScheduler.h"
+
 class Trigger {
 private:
 	std::function<bool()> condition;

@@ -35,22 +35,8 @@
 #define PROS_USE_LITERALS
 
 #include "api.h"
-#include "command/commandScheduler.h"
-#include "command/repeatCommand.h"
-#include "command/functionalCommand.h"
-#include "command/instantCommand.h"
-#include "command/runCommand.h"
-#include "command/parallelCommandGroup.h"
-#include "command/parallelRaceGroup.h"
-#include "command/sequence.h"
-#include "command/trigger.h"
-#include "command/commandController.h"
-#include "command/waitCommand.h"
-#include "command/waitUntilCommand.h"
-#include "command/conditionalCommand.h"
-#include "command/scheduleCommand.h"
 #include "example/intake.h"
-#include "command/proxyCommand.h"
+#include "command/includes.h"
 
 /**
  * You should add more #includes here

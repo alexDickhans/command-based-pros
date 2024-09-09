@@ -10,8 +10,16 @@ enum class CommandCancelBehavior {
 };
 
 // Like WPILib's Command class
+/**
+ * @brief Abstract Command class to be overriden for new commands
+ *
+ */
 class Command {
 public:
+	/** @brief Called before every time the command is used. Users can override this to create starting behaviors for
+	 * custom commands
+	 *
+	 */
     virtual void initialize() {}
     virtual void execute() {}
     virtual bool isFinished() { return false; };

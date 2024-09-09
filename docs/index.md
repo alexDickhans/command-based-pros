@@ -8,7 +8,7 @@ is a PROS library for VEX programmers who want a better interface for complex co
 :ref:`genindex`
 ```
 
-```{doxygenstruct}
+```{doxygenclass}
    Command
    :members:
 ```

@@ -1,15 +1,21 @@
 #pragma once
 
-#include "units/units.hpp"
 #include "subsystem.h"
+#include "units/units.hpp"
 
-// enum for different cancel behaviors
+/**
+ * @brief Enum for different cancel behaviors for Commands
+ *
+ * Cancel Incoming causes newly scheduled commands to fail, keeping the current command running until it ends
+ * uninterrupted. Cancel Running caused the currently running command to yield to the newly scheduled command and end
+ * interrupted.
+ *
+ */
 enum class CommandCancelBehavior {
-    CancelIncoming,
-    CancelRunning,
+	CancelIncoming,
+	CancelRunning,
 };
 
-// Like WPILib's Command class
 /**
  * @brief Abstract Command class to be overriden for new commands
  *
@@ -26,24 +32,24 @@ public:
 	 *	}
 	 *  @endcode
 	 */
-    virtual void initialize() {}
-    virtual void execute() {}
-    virtual bool isFinished() { return false; };
-    virtual void end(bool interrupted) {};
-    virtual std::vector<Subsystem*> getRequirements() { return {}; };
-    virtual CommandCancelBehavior getCancelBehavior() { return CommandCancelBehavior::CancelRunning; };
+	virtual void initialize() {}
+	virtual void execute() {}
+	virtual bool isFinished() { return false; };
+	virtual void end(bool interrupted){};
+	virtual std::vector<Subsystem *> getRequirements() { return {}; };
+	virtual CommandCancelBehavior getCancelBehavior() { return CommandCancelBehavior::CancelRunning; };
 
-    void schedule();
-    void cancel();
-    [[nodiscard]] bool scheduled() const;
+	void schedule();
+	void cancel();
+	[[nodiscard]] bool scheduled() const;
 
-    Command* andThen(Command* other);
-    Command* withTimeout(QTime duration);
-    Command* until(const std::function<bool()>& isFinish);
-    Command* with(Command* other);
-    Command* race(Command* other);
-    Command* repeatedly();
-    Command* asProxy();
+	Command *andThen(Command *other);
+	Command *withTimeout(QTime duration);
+	Command *until(const std::function<bool()> &isFinish);
+	Command *with(Command *other);
+	Command *race(Command *other);
+	Command *repeatedly();
+	Command *asProxy();
 
-    virtual ~Command() = default;
+	virtual ~Command() = default;
 };

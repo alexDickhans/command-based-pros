@@ -3,6 +3,9 @@
 #include "command.h"
 #include "units/units.hpp"
 
+/**
+ * @brief
+ */
 class WaitCommand : public Command {
 	QTime startTime;
 	QTime duration;

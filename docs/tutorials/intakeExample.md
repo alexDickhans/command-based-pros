@@ -154,3 +154,92 @@ the memory it used, however because we only used a Motor object in this class it
 
 };
 ```
+
+## main.h
+
+In main.h we have to add the necessary includes to the environment. For this example you will want to include the
+subsystem you just made. In our project this looks like the following.
+
+```c++
+#include "subsystems/intake.h"
+```
+
+## main.cpp
+
+First we have to make a CommandController object for easier Trigger creation, and an Intake pointer to store the Intake
+subsystem instantiation.
+
+```c++
+CommandController primary(pros::E_CONTROLLER_MASTER);
+
+Intake *intake;
+```
+
+To actually run the intake code we need to first run the CommandScheduler. We suggest you do this by creating this task
+that runs the necessary CommandScheduler::run() every 10ms.
+
+```c++
+/**
+ * @brief This function runs the update scheduler at each frame with a consistent schedule
+ *
+ * @warning This function or alternative similar to it must be running to ensure the \refitem CommandScheduler is run
+ */
+[[noreturn]] void update_loop() {
+	// Loop forever
+	while (true) {
+		// Store the start time
+		auto start_time = pros::millis();
+
+		// Run the command scheduler
+		// This might be an expensive(Time wise) computation
+		CommandScheduler::run();
+
+		// Use delay until if this computation ends up being expensive, keeping loop time in check
+		pros::c::task_delay_until(&start_time, 10);
+	}
+}
+```
+
+Next, in our initialize function we have to start the `update_loop` function. To do this we start it with a task to run
+it asynchronously from the main code
+
+```c++
+void initialize() {
+	// Start the command scheduler task
+	pros::Task commandSchedulerTask(update_loop);
+```
+
+Then we have to initialize and register the Subsystem with the CommandScheduler, to register command we have to also set
+a default command, in this case it stops the intake:
+
+```c++
+// Create a new intake object and store it in the global intake
+intake = new Intake(pros::Motor(1));
+
+CommandScheduler::registerSubsystem(intake, intake->pctCommand(0.0));
+```
+
+Then we have to define the triggers. These triggers make the intake move forwards and backwards on command.
+
+```c++
+// Set pctCommand to run while R1 is true
+primary.getTrigger(DIGITAL_R1)->whileTrue(intake->pctCommand(-1.0));
+
+// Toggle pctCommand to run while R1 turns to ture
+primary.getTrigger(DIGITAL_R2)->toggleOnTrue(intake->pctCommand(1.0));
+```
+
+Create a command that dejams the intake by moving it back and forth repeatedly using the Command composition sequence
+with the command shorthand form.
+
+```c++
+// Dejam mode, causes the intake to move back and forth quickly
+primary.getTrigger(DIGITAL_A)->whileTrue(intake->pctCommand(-1.0)
+                                                    ->withTimeout(300_ms)
+                                                    ->andThen(intake->pctCommand(1.0)
+                                                        ->withTimeout(300_ms))
+                                                    ->repeatedly());
+```
+
+And there we go! This is a fully functional intake subsystem that allows complex commands such as dejam and in the
+future color sorting to be done much easier than with other solutions. 

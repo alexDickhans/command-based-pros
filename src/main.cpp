@@ -33,11 +33,18 @@ void initialize() {
 
 	CommandScheduler::registerSubsystem(intake, intake->pctCommand(0.0));
 
-	//
-	primary.getTrigger(DIGITAL_R1)->whileTrue(intake->pctCommand(1.0));
+	// Set pctCommand to run while R1 is true
+	primary.getTrigger(DIGITAL_R1)->whileTrue(intake->pctCommand(-1.0));
 
+	// Toggle pctCommand to run while R1 turns to ture
+	primary.getTrigger(DIGITAL_R2)->toggleOnTrue(intake->pctCommand(1.0));
 
-	primary.getTrigger(DIGITAL_R2)->toggleOnTrue(intake->pctCommand(-1.0));
+	// Dejam mode, causes the intake to move back and forth quickly
+	primary.getTrigger(DIGITAL_A)->whileTrue(intake->pctCommand(-1.0)
+														->withTimeout(300_ms)
+														->andThen(intake->pctCommand(1.0)
+															->withTimeout(300_ms))
+														->repeatedly());
 }
 
 void disabled() {}

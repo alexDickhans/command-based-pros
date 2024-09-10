@@ -1,0 +1,5 @@
+# CommandController
+
+```{doxygenclass} CommandController
+:members:
+```

@@ -1,0 +1,5 @@
+# ParallelCommandGroup
+
+```{doxygenclass} ParallelCommandGroup
+:members:
+```

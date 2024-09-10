@@ -1,0 +1,5 @@
+# InstantCommand
+
+```{doxygenclass} InstantCommand
+:members:
+```

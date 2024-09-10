@@ -1,0 +1,5 @@
+# Trigger
+
+```{doxygenclass} Trigger
+:members:
+```

@@ -1,6 +1,9 @@
 # Installation
 
-Download the zip file from the [most recent release](https://github.com/alexDickhans/command-based-pros/releases/latest). 
+Download the zip file from
+the [most recent release](https://github.com/alexDickhans/command-based-pros/releases/latest). This project also depends
+on [libunit](https://github.com/alexDickhans/units), follow the installation instructions in the README of that project
+to install it.
 
 Then fetch the libcommand zip
 

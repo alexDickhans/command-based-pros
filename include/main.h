@@ -35,7 +35,7 @@
 #define PROS_USE_LITERALS
 
 #include "api.h"
-#include "example/intake.h"
+#include "example/subsystems/intake.h"
 #include "command/includes.h"
 
 /**

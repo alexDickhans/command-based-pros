@@ -10,6 +10,10 @@
  */
 class Intake : public Subsystem {
 private:
+	/**
+	 * Store the necessary resources for this subsystem in the private section. We will control these resources in
+	 * member methods
+	 */
 	pros::Motor intakeMotor;
 public:
 	/**
@@ -47,10 +51,9 @@ public:
 		this->intakeMotor.move_voltage(static_cast<std::int32_t>(pct * 12000.0));
 	}
 
-	// Example way to create commands from class
-	// This is very useful for simple commands or default commands
 	/**
-	 *	@brief
+	 * @brief Example way to create commands from class
+	 * This is very useful for simple commands or default commands
 	 *
 	 * @param pct Percentage Desired for this command
 	 * @return Command pointer to a RunCommand that moves the intake

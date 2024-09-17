@@ -63,7 +63,7 @@ public:
 	 * @return True if all commands are finished
 	 */
 	bool isFinished() override {
-		return std::ranges::all_of(commands | std::views::values, [](const bool running) { return running; });
+		return std::ranges::all_of(commands | std::views::values, [](const bool running) { return !running; });
 	}
 
 	/**

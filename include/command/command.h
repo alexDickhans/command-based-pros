@@ -205,5 +205,23 @@ public:
 	 */
 	Command *asProxy();
 
+	/**
+	 * @brief Log a message to the brain
+	 *
+	 * @param message The message to log
+	 * @return \refitem LogBrainCommand that logs the message
+	 */
+	template <class ...Args>
+	Command *logToBrain(std::string message, Args... args);
+
+	/**
+	 * @brief Log a message to the controller
+	 *
+	 * @param message The message to log
+	 * @return \refitem LogControllerCommand that logs the message
+	 */
+	template <class ...Args>
+	Command *logToController(std::string message, Args... args);
+
 	virtual ~Command() = default;
 };

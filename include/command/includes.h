@@ -7,6 +7,7 @@
 #include "eventLoop.h"
 #include "functionalCommand.h"
 #include "instantCommand.h"
+#include "logCommand.h"
 #include "parallelCommandGroup.h"
 #include "parallelRaceGroup.h"
 #include "proxyCommand.h"

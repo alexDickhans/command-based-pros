@@ -19,3 +19,4 @@ public:
 
 	~InstantCommand() override = default;
 };
+

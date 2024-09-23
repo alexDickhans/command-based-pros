@@ -37,9 +37,9 @@ void initialize() {
 	primary.getTrigger(DIGITAL_R1)->whileTrue(intake->pctCommand(-1.0));
 
 	// Toggle pctCommand to run while R1 turns to ture
-	primary.getTrigger(DIGITAL_R2)->toggleOnTrue(intake->pctCommand(1.0))
-													   ->brainDebugLog("Intake toggled on at %i percent speed",
-													   		static_cast<int>(1.0 * 100));
+	primary.getTrigger(DIGITAL_R2)->toggleOnTrue(intake->pctCommand(1.0)
+													   ->logToBrain("Intake toggled on at %i percent speed", static_cast<int>(1.0 * 100))
+												);
 
 	// Dejam mode, causes the intake to move back and forth quickly
 	primary.getTrigger(DIGITAL_A)->whileTrue(intake->pctCommand(-1.0)

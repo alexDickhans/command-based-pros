@@ -34,9 +34,11 @@ void initialize() {
 	CommandScheduler::registerSubsystem(intake, intake->pctCommand(0.0));
 
 	// Set pctCommand to run while R1 is true
-	primary.getTrigger(DIGITAL_R1)->whileTrue(intake->pctCommand(-1.0));
+	primary.getTrigger(DIGITAL_R1)->whileTrue(intake->pctCommand(-1.0)
+													->logToController(primary, "Intake on at %i", static_cast<int>(-1.0 * 100))
+											 );
 
-	// Toggle pctCommand to run while R1 turns to ture
+	// Toggle pctCommand to run while R1 turns to true
 	primary.getTrigger(DIGITAL_R2)->toggleOnTrue(intake->pctCommand(1.0)
 													   ->logToBrain("Intake toggled on at %i percent speed", static_cast<int>(1.0 * 100))
 												);
@@ -45,7 +47,7 @@ void initialize() {
 	primary.getTrigger(DIGITAL_A)->whileTrue(intake->pctCommand(-1.0)
 														->withTimeout(300_ms)
 														->andThen(intake->pctCommand(1.0)
-															->withTimeout(300_ms))
+														->withTimeout(300_ms))
 														->repeatedly());
 }
 

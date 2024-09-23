@@ -209,6 +209,8 @@ public:
 	 * @brief Log a message to the brain
 	 *
 	 * @param message The message to log
+	 * @param args The arguments to format the message with
+	 * 
 	 * @return \refitem LogBrainCommand that logs the message
 	 */
 	template <class ...Args>
@@ -217,11 +219,14 @@ public:
 	/**
 	 * @brief Log a message to the controller
 	 *
+	 * @param controller The controller to log to
 	 * @param message The message to log
+	 * @param args The arguments to format the message with
+	 * 
 	 * @return \refitem LogControllerCommand that logs the message
 	 */
 	template <class ...Args>
-	Command *logToController(std::string message, Args... args);
+	Command *logToController(pros::Controller& controller, std::string message, Args... args);
 
 	virtual ~Command() = default;
 };

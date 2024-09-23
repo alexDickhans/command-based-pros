@@ -3,8 +3,6 @@
 #include "commandScheduler.h"
 #include "eventLoop.h"
 
-#include "main.h"
-
 /**
  * This class allows for easy triggering of Commands based on boolean inputs
  */

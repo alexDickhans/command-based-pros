@@ -1,5 +1,7 @@
 #include "main.h"
 
+using namespace units;
+
 CommandController primary(pros::E_CONTROLLER_MASTER);
 
 Intake *intake;
